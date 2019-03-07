@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_03_04_140003) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: :cascade do |t|
     t.string "identifier", default: "", null: false
     t.string "secret", default: "", null: false

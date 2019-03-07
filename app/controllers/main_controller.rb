@@ -90,7 +90,7 @@ class MainController < ApplicationController
 
   def showLogs
 
-    @logs=Log.all.order('id DESC').to_json
+    @logs=Log.all.order('id DESC').limit(100)
   end
 
 end

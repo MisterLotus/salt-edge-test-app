@@ -30,7 +30,7 @@ class Saltedge
         params: as_json(params)
     }
 
-    return JSON.parse(RestClient::Request.execute(
+     responce = JSON.parse(RestClient::Request.execute(
         method: hash[:method],
         url: hash[:url],
         payload: hash[:params],
@@ -44,38 +44,14 @@ class Saltedge
             "Secret" => secret
         }
     ))
+    self.log_data(method, url, params,responce)
+    return responce
   rescue RestClient::Exception => error
-    return JSON.parse(error.response)
+    responce = JSON.parse(error.response)
+    self.log_data(method, url, params,responce)
+    return responce
   end
 
-
-  def create_fake_customer(identifier)
-    data = {"data": {"identifier": identifier}}
-    url = BASE_URL + 'customers/'
-    return responce = request('POST', url, data)
-
-  end
-
-
-  def create_fake_login(customer_id, login, password)
-    data = {
-        "data": {
-            "customer_id": customer_id,
-            "country_code": "XF",
-            "provider_code": "fake_bank_simple_xf",
-            "fetch_scopes": [
-                "accounts",
-                "transactions"],
-            "credentials": {
-                "login": login,
-                "password": password
-            }
-        }
-    }
-    return responce = request('POST', 'https://www.saltedge.com/api/v4/logins/', data)
-  end
-
-  private
 
   def sign_request(hash)
     data = "#{hash[:expires_at]}|#{hash[:method].to_s.upcase}|#{hash[:url]}|#{hash[:params]}"
@@ -87,6 +63,14 @@ class Saltedge
     return "" if params.empty?
     params.to_json
   end
+
+  def log_data(method,url,input,output)
+    log = Log.new
+    log.timestamp = DateTime.now.strftime('%Y-%m-%d %H:%M:%S')
+    log.data = method+' | '+url+' | '+input.to_json.to_str+ ' | '+output.to_json.to_str
+    log.save
+  end
+
 
 
 end

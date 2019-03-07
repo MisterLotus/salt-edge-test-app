@@ -17,9 +17,9 @@ module TokensHelper
     if(responce.key?("data"))
       token = Token.new
       token.customer_id = params[:customer_id]
-      token.token = responce["token"]
-      token.expires_at = responce["expires_at"]
-      token.connect_url = responce["connect_url"]
+      token.token = responce["data"]["token"]
+      token.expires_at = responce["data"]["expires_at"]
+      token.connect_url = responce["data"]["connect_url"]
       token.save
     end
     return responce

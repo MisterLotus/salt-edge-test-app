@@ -3,7 +3,10 @@
   <div class="result">
     <br>
     <pre>
-    <%= @logs %>
+      <% @logs.each do |log| %>
+        <%= log.to_json %> <br>
+      <% end %>
+
     </pre>
   </div>
 </div>
