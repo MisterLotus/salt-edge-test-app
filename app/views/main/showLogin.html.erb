@@ -1,0 +1,19 @@
+<div class="main">
+  <form>
+    Login ID
+    <select name="login_id">
+      <option value="ALL">ALL</option>
+      <% @all_logins.each do |login| %>
+        <option value="<%= login['id'] %>"><%= login['id'] %></option>
+      <% end %>
+
+    </select>
+    <br>
+    <input type="submit" value="Show">
+  </form>
+
+  <div class="result">
+    <br>
+    <%= @show_result %>
+  </div>
+</div>

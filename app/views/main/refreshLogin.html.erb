@@ -1,0 +1,17 @@
+<div class="main">
+  <form>
+    Login ID
+    <select name="login_id">
+      <% @all_logins.each do |login| %>
+        <option value="<%= login['id'] %>"><%= login['id'] %></option>
+      <% end %>
+    </select>
+    <br>
+    <input type="submit" value="Refresh">
+  </form>
+
+  <div class="result">
+    <br>
+    <%= @refresh_result %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SaltEdge</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="sidenav">
+  <a href="showMain">Main Page</a>
+  <a href="createUser">Create user with customer</a>
+  <a href="createToken">Create token</a>
+  <a href="createLogin">Create login</a>
+  <a href="refreshLogin">Refresh login</a>
+  <a href="reconnectLogin">Reconnect login</a>
+  <a href="destroyLogin">Destroy login</a>
+  <a href="showLogin">Show login</a>
+  <a href="showAccounts">Show accounts</a>
+  <a href="showPostedTransactions">Show posted transactions</a>
+  <a href="showPendingTransactions">Show pending transactions</a>
+  <a href="showLogs">Show logs</a>
+</div>
+<%= yield %>
+</body>
+</html>

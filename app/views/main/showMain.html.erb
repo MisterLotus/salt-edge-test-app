@@ -1,0 +1,25 @@
+<div class="main">
+  Welcome to A.Nicolaev Salt Edge test app<br>
+  <a href="https://docs.saltedge.com/account_information/v4/">Salt Edge v4 SpectrAPI documentation</a><br>
+  My Task:<br><br>
+  1. Create rails app with Spectre API support.<br><br>
+
+  App should be able to do the following things using Spectre API:<br>
+  0) Create user in the system using devise<br>
+  1) Create customer for the user (on user registration)<br>
+  2) Create login for that customer (use fake_bank_simple_xf provider)<br>
+  3) Fetch accounts and transactions(posted and pending) for that login<br>
+  4) Refresh/reconnect/destroy login<br>
+  5) Deploy app to heroku and handle Spectre success/fail callbacks.<br>
+
+  2. Upload your code to github.<br><br>
+
+  App should display table with created connections(logins)<br>
+  Each login should lead to table with its accounts.<br>
+  Each account should lead to table with its transactions.<br>
+
+  Unknown:<br>
+  Processing by MainController#showPostedTransactions as HTML<br>
+  "1551982493|GET|https://www.saltedge.com/api/v4/accounts|"<br>
+  {"error_class"=>"CustomerNotFound", "error_message"=>"Customer with id: '' was not found.", "request"=>{}}<br>
+</div>

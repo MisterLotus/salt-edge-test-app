@@ -1,0 +1,20 @@
+<div class="main">
+  <form>
+    Login ID
+  <select name="login_id">
+    <% @all_logins.each do |login| %>
+      <option value="<%= login['id'] %>"><%= login['id'] %></option>
+    <% end %>
+  </select>
+    <br>
+    New Login<br>
+    <input type="text" name="login"> <br>
+    New Password<br>
+    <input type="password" name="password"><br>
+    <input type="submit" value="Reconnect">
+  </form>
+  <div class="result">
+    <br>
+    <%= @reconnect_result %>
+  </div>
+</div>
