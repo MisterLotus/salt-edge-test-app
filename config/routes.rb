@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'call_back/process'
+  get 'call_back/handle'
   get 'main/showMain'
   get 'main/createUser'
   get 'main/createToken'
