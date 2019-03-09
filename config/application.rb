@@ -12,6 +12,7 @@ module SaltEdge
     config.load_defaults 5.2
     #add custom location for autoload
     config.autoload_once_paths += %W(#{config.root}/app/common/saltedge_helpers)
+    config.assets.compile = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
