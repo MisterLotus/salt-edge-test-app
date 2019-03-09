@@ -1,5 +1,5 @@
 class AddLogsTable < ActiveRecord::Migration[5.2]
-def self.up
+  def self.up
     create_table :logs do |t|
       t.timestamp :timestamp, null: false
       t.string :data, null: false, default: ""

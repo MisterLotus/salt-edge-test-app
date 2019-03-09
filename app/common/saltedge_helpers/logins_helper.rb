@@ -11,10 +11,10 @@ module LoginsHelper
             "accounts",
             "transactions"
         ],
-    "credentials": {
-        "login": params[:login],
-        "password": params[:password]
-    }
+        "credentials": {
+            "login": params[:login],
+            "password": params[:password]
+        }
     }
     }
 
@@ -22,7 +22,7 @@ module LoginsHelper
   end
 
   def LoginsHelper.refresh(params)
-    url =  LOGIN_RELATIVE_URL+params[:login_id]+"/refresh"
+    url = LOGIN_RELATIVE_URL + params[:login_id] + "/refresh"
     data = {
         "data": {
             "fetch_scopes": [
@@ -36,7 +36,7 @@ module LoginsHelper
   end
 
   def LoginsHelper.reconnect(params)
-    url = LOGIN_RELATIVE_URL+params[:login_id]+'/reconnect'
+    url = LOGIN_RELATIVE_URL + params[:login_id] + '/reconnect'
     data = {
         "data": {
             "credentials": {
@@ -52,7 +52,7 @@ module LoginsHelper
   end
 
   def LoginsHelper.destroy(params)
-    url = LOGIN_RELATIVE_URL + params[:login_id]+'/destroy_credentials'
+    url = LOGIN_RELATIVE_URL + params[:login_id] + '/destroy_credentials'
     return Saltedge.new.request('PUT', url)
   end
 
@@ -61,7 +61,7 @@ module LoginsHelper
     return Saltedge.new.request('GET', url)
   end
 
-  def LoginsHelper.showAll
+  def LoginsHelper.show_all
     url = LOGIN_RELATIVE_URL
     return Saltedge.new.request('GET', url)
   end

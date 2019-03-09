@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
 
   get 'call_back/handle'
-  get 'main/showMain'
-  get 'main/createUser'
-  get 'main/createToken'
-  get 'main/createLogin'
-  get 'main/refreshLogin'
-  get 'main/reconnectLogin'
-  get 'main/destroyLogin'
-  get 'main/showLogin'
-  get 'main/showAccounts'
-  get 'main/showPostedTransactions'
-  get 'main/showPendingTransactions'
-  get 'main/showLogs'
+  get 'main/show_main'
+  get 'main/create_user'
+  get 'main/create_token'
+  get 'main/create_login'
+  get 'main/refresh_login'
+  get 'main/reconnect_login'
+  get 'main/destroy_login'
+  get 'main/show_login'
+  get 'main/show_accounts'
+  get 'main/show_posted_transactions'
+  get 'main/show_pending_transactions'
+  get 'main/show_logs'
   devise_for :users
-  get 'users/create'
-  get 'users/showAll'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 

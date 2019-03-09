@@ -1,5 +1,5 @@
 class AddTokensTable < ActiveRecord::Migration[5.2]
-def self.up
+  def self.up
     create_table :tokens do |t|
       t.integer :customer_id, null: false
       t.string :token, null: false, default: ""

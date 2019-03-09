@@ -1,0 +1,46 @@
+<div class="main" action="createLogin">
+  <form>
+    <fieldset disabled="disabled">
+      Login<br>
+      <input type="text" name="login"><br>
+      Password<br>
+      <input type="password" name="password"><br>
+      Customer<br>
+      <select name="customer_id">
+        <% Customer.all.each do |customer| %>
+          <option value="<%= customer.customer_id %>"><%= customer.identifier %></option>
+        <% end %>
+      </select>
+      <br>
+      <input type="submit" value="Create">
+    </fieldset>
+  </form>
+  Unable to create Login using API during security restriction, use SaltEdge Token connect_url on, see screenshots below
+  <a href="create_token">Create Token</a>
+  <br>Step 1<br>
+  <%= image_tag("/assets/create_token.jpg") %>
+  <br>Step 2<br>
+  <%= image_tag("/assets/add_bank_with_login.jpg") %>
+  <br>Step 3<br>
+  <%= image_tag("/assets/add_bank_with_login_confirm.jpg") %>
+  <br>Step 4<br>
+  <%= image_tag("/assets/login_for_test_company_creating.png") %>
+  <br>
+
+  Example of fail work API direct work:<br>
+  Performed request:<br><br>
+
+  "1551808988|POST|https://www.saltedge.com/api/v4/logins/|{\"data\":{\"customer_id\":\"3562092\",\"country_code\":\"XF\",\"provider_code\":\"fake_bank_simple_xf\",\"fetch_scopes\":[\"accounts\",\"transactions\"],\"credentials\":{\"login\":\"test\",\"password\":\"test\"}}}"
+  <br><br>
+  Received responce:
+  <br>
+  {"error_class"=>"ActionNotAllowed", "error_message"=>"This action is allowed only for certified and/or selected
+  partners. Please contact us to be able to create entities.", "request"=>{"data"=>{"customer_id"=>"3562092",
+  "country_code"=>"XF", "provider_code"=>"fake_bank_simple_xf", "fetch_scopes"=>["accounts", "transactions"],
+  "credentials"=>"[FILTERED]"}}}
+
+  <div class="result">
+    <br>
+    <%= @create_result %>
+  </div>
+</div>

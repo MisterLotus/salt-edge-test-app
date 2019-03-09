@@ -2,7 +2,7 @@
   <form>
     Customer ID
     <select name="customer_id">
-      <% Customer.all.each do |customer|%>
+      <% Customer.all.each do |customer| %>
         <option value="<%= customer.customer_id %>"><%= customer.identifier %></option>
       <% end %>
     </select>

@@ -14,7 +14,7 @@
 
   <br>------------<br>
   <form>
-    <%if(@all_accounts) %>
+    <% if (@all_accounts) %>
       Step 2 Select Account<br>
       <select name="account_id">
         <%
@@ -24,7 +24,7 @@
       </select>
       <br>
       From ID(optional)<br>
-      <input type="text" name="from_id"  value="0"><br>
+      <input type="text" name="from_id" value="0"><br>
       <input type="submit" value="Show Transactions">
       </form>
 
@@ -32,7 +32,7 @@
 
     <div class="result">
       <br>
-      <%if(@show_result) %>
+      <% if (@show_result) %>
         <%= @show_result %>
       <% end %>
     </div>

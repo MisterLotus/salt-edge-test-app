@@ -22,7 +22,7 @@ class Saltedge
 
   def request(method, url, params = {})
     #  optimize, trasnfer only relative PATH in url , add full PATH
-    url = BASE_URL+url
+    url = BASE_URL + url
     hash = {
         method: method,
         url: url,
@@ -30,7 +30,7 @@ class Saltedge
         params: as_json(params)
     }
 
-     responce = JSON.parse(RestClient::Request.execute(
+    responce = JSON.parse(RestClient::Request.execute(
         method: hash[:method],
         url: hash[:url],
         payload: hash[:params],
@@ -44,11 +44,11 @@ class Saltedge
             "Secret" => secret
         }
     ))
-    self.log_data(method, url, params,responce)
+    self.log_data(method, url, params, responce)
     return responce
   rescue RestClient::Exception => error
     responce = JSON.parse(error.response)
-    self.log_data(method, url, params,responce)
+    self.log_data(method, url, params, responce)
     return responce
   end
 
@@ -64,13 +64,12 @@ class Saltedge
     params.to_json
   end
 
-  def log_data(method,url,input,output)
+  def log_data(method, url, input, output)
     log = Log.new
     log.timestamp = DateTime.now.strftime('%Y-%m-%d %H:%M:%S')
-    log.data = method+' | '+url+' | '+input.to_json.to_str+ ' | '+output.to_json.to_str
+    log.data = method + ' | ' + url + ' | ' + input.to_json.to_str + ' | ' + output.to_json.to_str
     log.save
   end
-
 
 
 end
